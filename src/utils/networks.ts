@@ -1,6 +1,5 @@
 export const SUPPORTED_CHAINS = {
   FANTOM: 250,
-  POLYGON: 137,
   MAINNET: 1,
 } as const;
 
@@ -47,18 +46,6 @@ export const chainMap: ChainMap = {
     },
     rpcUrls: ['https://rpc.ftm.tools/'],
     blockExplorerUrls: ['https://ftmscan.com'],
-  },
-  [SUPPORTED_CHAINS.POLYGON]: {
-    blockTime: 1.5,
-    chainId: `0x${Number(SUPPORTED_CHAINS.POLYGON).toString(16)}`,
-    chainName: 'Polygon Mainnet',
-    nativeCurrency: {
-      name: 'Matic',
-      symbol: 'MATIC',
-      decimals: 18,
-    },
-    rpcUrls: ['https://polygon-rpc.com/'],
-    blockExplorerUrls: ['https://polygonscan.com'],
   },
 };
 

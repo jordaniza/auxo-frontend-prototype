@@ -23,12 +23,4 @@ const USDC: VaultSpecifics = {
   strategies: [],
 };
 
-// instantiate top level vault info here
-export const Polygon: Vault[] = [USDC].map((vault) => ({
-  network: {
-    name: 'POLYGON',
-    chainId: SUPPORTED_CHAINS.POLYGON,
-    multicall: '0xd130B43062D875a4B7aF3f8fc036Bc6e9D3E1B3E',
-  },
-  ...vault,
-}));
+

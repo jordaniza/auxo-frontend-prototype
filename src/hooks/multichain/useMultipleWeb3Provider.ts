@@ -2,7 +2,6 @@ import { useCallback, useContext, useMemo } from 'react';
 import {
   EthereumWeb3Context,
   FTMWeb3Context,
-  PolygonWeb3Context,
   Web3ContextData,
 } from './MultipleProviderContext';
 import { SUPPORTED_CHAINS, SUPPORTED_CHAIN_ID } from '../../utils/networks';
@@ -25,10 +24,6 @@ export const useWeb3Context = (chainId: number): Web3ContextData => {
       context = FTMWeb3Context;
       break;
     }
-    case SUPPORTED_CHAINS.POLYGON: {
-      context = PolygonWeb3Context;
-      break;
-    }
     default: {
       context = FTMWeb3Context;
     }
@@ -41,17 +36,13 @@ export const useMultipleProvider = () => {
     SUPPORTED_CHAINS.MAINNET,
   ).provider;
   const ftmContextProvider = useWeb3Context(SUPPORTED_CHAINS.FANTOM).provider;
-  const polygonContextProvider = useWeb3Context(
-    SUPPORTED_CHAINS.POLYGON,
-  ).provider;
 
   const providers = useMemo(
     () => ({
       [SUPPORTED_CHAINS.MAINNET]: ethereumContextProvider,
       [SUPPORTED_CHAINS.FANTOM]: ftmContextProvider,
-      [SUPPORTED_CHAINS.POLYGON]: polygonContextProvider,
     }),
-    [ftmContextProvider, polygonContextProvider, ethereumContextProvider],
+    [ftmContextProvider, ethereumContextProvider],
   );
 
   // handling the notfound case?

@@ -12,10 +12,8 @@ describe('Testing the refresh frequency hook', () => {
     const expectPolygon = Math.round(60 / 1.5);
 
     const refreshFTM = getRefreshFrequency(SUPPORTED_CHAINS.FANTOM);
-    const refreshPolygon = getRefreshFrequency(SUPPORTED_CHAINS.POLYGON);
 
     expect(refreshFTM).toEqual(expectedFTM);
-    expect(refreshPolygon).toEqual(expectPolygon);
   });
 });
 
